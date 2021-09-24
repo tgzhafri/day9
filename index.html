@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 9 - Audio Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="banner">
+        <h4 id="title-song">Song</h4>
+
+        <h4 id="artist-name">Artist</h4>
+        <div id="seekBar">
+            <div id="timeBar"></div>
+          </div>
+        <audio
+          id="song"
+          src="./audio/01-arctic_monkeys-do_i_wanna_know.mp3"
+          controls
+          loop
+        ></audio>
+        <i id="arrow-left" class="fa fa-arrow-left"></i>
+        <div id="controls">
+          <div>
+            <i class="fa fa-backward"></i>
+          </div>
+
+          <div id="switch-btn">
+            <i class="fa fa-play" onclick="playSong()"></i>
+          </div>
+          <div>
+            <i class="fa fa-pause" onclick="pauseSong()"></i>
+          </div>
+          <div>
+            <i class="fa fa-forward"></i>
+          </div>
+          <div id="heart-btn">
+            <i class="fa fa-heart"onclick="changeColor()"></i>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="song-container">
+        <div id="song-holder">
+          <h4>01</h4>
+          <img src="./images/la.jpg" />
+          <div id="song-list" onclick="getSong('audio1')">
+            <h5 id="title-song">Do I Wanna Know</h5>
+            <h5 id="artist-name">Arctice Monkeys</h5>
+          </div>
+          <h4>+</h4>
+        </div>
+        <div id="song-holder">
+          <h4>02</h4>
+          <img src="./images/la.jpg" />
+          <div id="song-list" onclick="getSong('audio2')">
+            <h5 id="title-song">Teddy Pickers</h5>
+            <h5 id="artist-name">Arctice Monkeys</h5>
+          </div>
+          <h4>+</h4>
+        </div>
+        <div id="song-holder">
+          <h4>03</h4>
+          <img src="./images/la.jpg" />
+          <div id="song-list" onclick="getSong('audio3')">
+            <h5 id="title-song">D is for Dangerous</h5>
+            <h5 id="artist-name">Arctice Monkeys</h5>
+          </div>
+          <h4>+</h4>
+        </div>
+        <div id="song-holder">
+          <h4>04</h4>
+          <img src="./images/la.jpg" />
+          <div id="song-list" onclick="getSong('audio4')">
+            <h5 id="title-song">R U Mine</h5>
+            <h5 id="artist-name">Arctice Monkeys</h5>
+          </div>
+          <h4>+</h4>
+        </div>
+        <div id="song-holder">
+          <h4>01</h4>
+          <img src="./images/la.jpg" />
+          <div id="song-list">
+            <h4 id="title-song">Song</h4>
+            <h4 id="artist-name">Artist</h4>
+          </div>
+          <h4>+</h4>
+        </div>
+        <h4 id="more-songs">More Songs</h4>
+
+        <div id="description">
+          <p>
+            Winter is here and it's cold outside - stay warm with these songs
+          </p>
+          <p>Created by Gilbert U | 147 songs 7 hr 4 min</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
