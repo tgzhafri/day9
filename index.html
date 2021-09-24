@@ -21,48 +21,46 @@
 
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="bg-body">
     <div id="app">
       <div id="banner">
-        <h4 id="title-song">Song</h4>
-
-        <h4 id="artist-name">Artist</h4>
+        <h5 id="title-song">Click play to hear some</h5>
+        <div id="banner-img"></div>
+        <h5 id="artist-name">Arctic Monkeys</h5>
         <div id="seekBar">
-            <div id="timeBar"></div>
-          </div>
+          <div id="timeBar"></div>
+        </div>
         <audio
           id="song"
-          src="./audio/01-arctic_monkeys-do_i_wanna_know.mp3"
-          controls
+          src="./audio/05  Arctic Monkeys - Fluorescent Adolescent.mp3"
+          autoplay
           loop
         ></audio>
         <i id="arrow-left" class="fa fa-arrow-left"></i>
         <div id="controls">
-          <div>
+          <div class="control-btn" onclick="timeClick(-10)">
             <i class="fa fa-backward"></i>
           </div>
 
-          <div id="switch-btn">
-            <i class="fa fa-play" onclick="playSong()"></i>
+          <div class="control-btn" id="switch-btn" onclick="switchClick()">
+            <i class="fa fa-play"></i>
           </div>
-          <div>
-            <i class="fa fa-pause" onclick="pauseSong()"></i>
+          <div class="control-btn" onclick="stopSong()">
+            <i class="fa fa-stop"></i>
           </div>
-          <div>
+          <div class="control-btn" onclick="timeClick(+10)">
             <i class="fa fa-forward"></i>
           </div>
-          <div id="heart-btn">
-            <i class="fa fa-heart"onclick="changeColor()"></i>
+          <div class="control-btn" id="heart-btn">
+            <i class="fa fa-heart" onclick="changeColor()"></i>
           </div>
         </div>
-
-
       </div>
 
       <div id="song-container">
         <div id="song-holder">
           <h4>01</h4>
-          <img src="./images/la.jpg" />
+          <img src="./images/map.jpg" />
           <div id="song-list" onclick="getSong('audio1')">
             <h5 id="title-song">Do I Wanna Know</h5>
             <h5 id="artist-name">Arctice Monkeys</h5>
@@ -71,7 +69,7 @@
         </div>
         <div id="song-holder">
           <h4>02</h4>
-          <img src="./images/la.jpg" />
+          <img src="./images/chicago.jpg" />
           <div id="song-list" onclick="getSong('audio2')">
             <h5 id="title-song">Teddy Pickers</h5>
             <h5 id="artist-name">Arctice Monkeys</h5>
@@ -89,7 +87,7 @@
         </div>
         <div id="song-holder">
           <h4>04</h4>
-          <img src="./images/la.jpg" />
+          <img src="./images/ny.jpg" />
           <div id="song-list" onclick="getSong('audio4')">
             <h5 id="title-song">R U Mine</h5>
             <h5 id="artist-name">Arctice Monkeys</h5>
@@ -98,7 +96,7 @@
         </div>
         <div id="song-holder">
           <h4>01</h4>
-          <img src="./images/la.jpg" />
+          <img src="./images/ny.jpg" />
           <div id="song-list">
             <h4 id="title-song">Song</h4>
             <h4 id="artist-name">Artist</h4>
