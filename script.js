@@ -1,5 +1,6 @@
 var song = document.getElementById("song");
 var isPlaying = false;
+var bgDisplay = false;
 var timeBar = document.getElementById("timeBar");
 var containerBg = document.getElementById("song-container");
 var bgBody = document.getElementById("bg-body");
@@ -13,28 +14,34 @@ var bannerBg = document.getElementById("banner-img");
 
 var audio1 = {
   src: "audio/01-arctic_monkeys-do_i_wanna_know.mp3",
-  title: "Do I Wanna Know",
+  title: "Do-I-Wanna-Know",
   artist: "Arctic Monkeys",
   bgImg: "url(./images/map.jpg)",
 };
 
 var audio2 = {
   src: "audio/02  Arctic Monkeys - Teddy Pickers.mp3",
-  title: "Teddy Pickers",
+  title: "Teddy-Pickers",
   artist: "Arctic Monkeys",
   bgImg: "url(./images/chicago.jpg)",
 };
 var audio3 = {
   src: "audio/03  Arctic Monkeys - D Is For Dangerous.mp3",
-  title: "D is for Dangerous",
+  title: "D-is-for-Dangerous",
   artist: "Arctic Monkeys",
   bgImg: "url(./images/la.jpg)",
 };
 var audio4 = {
   src: "audio/04-arctic_monkeys-r_u_mine.mp3",
-  title: "R U Mine",
+  title: "R-U-Mine",
   artist: "Arctic Monkeys",
   bgImg: "url(./images/ny.jpg)",
+};
+var audio5 = {
+  src: "audio/05  Arctic Monkeys - Fluorescent Adolescent.mp3",
+  title: "Fluorescent-Adoloscent",
+  artist: "Arctic Monkeys",
+  bgImg: "url(./images/am.jfif)",
 };
 
 function stopSong() {
@@ -46,8 +53,19 @@ function stopSong() {
 }
 
 function changeColor() {
-  heartBtn.style.color = "red";
-  bgBody.style.backgroundImage = "url(https://media0.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif?cid=790b7611d83044e71551f4def6a343642efd8dc1aab4b9f2&rid=giphy.gif&ct=g)";
+  if (bgDisplay == false) {
+    heartBtn.style.color = "red";
+    bgBody.style.backgroundImage =
+      "url(https://media0.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif?cid=790b7611d83044e71551f4def6a343642efd8dc1aab4b9f2&rid=giphy.gif&ct=g)";
+    bgDisplay = true;
+    return;
+  }
+  if (bgDisplay == true) {
+    heartBtn.style.color = "white";
+    bgBody.style.backgroundImage = "none";
+    bgDisplay = false;
+    return;
+  }
 }
 function switchClick() {
   if (isPlaying == false) {
@@ -79,8 +97,20 @@ function checkTime() {
   containerBg.style.backgroundColor = `rgb(${clrR}, ${clrG}, ${clrB})`;
 }
 
-function timeClick (forwardTime) {
-    song.currentTime += forwardTime;
+function timeClick(moveSeekBar) {
+  song.play();
+  song.currentTime += moveSeekBar;
+  isPlaying = true;
+  document.getElementById("switch-btn").innerHTML =
+    "<i class='fa fa-pause fadeAnimate'></i>";
+}
+
+var text = document.getElementById("circular-text");
+text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+var element = document.querySelectorAll("span");
+for (let i = 0; i < element.length; i++) {
+  element[i].style.transform = "rotate(" + i * 15 + "deg)";
 }
 
 function getSong(songData) {
@@ -94,7 +124,15 @@ function getSong(songData) {
       isPlaying = true;
       document.getElementById("switch-btn").innerHTML =
         "<i class='fa fa-pause fadeAnimate'></i>";
-    bgBody.style.backgroundImage = "none";
+      bgBody.style.backgroundImage = "none";
+
+      text.innerHTML = audio1.title;
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+      var element = document.querySelectorAll("span");
+      for (let i = 0; i < element.length; i++) {
+        element[i].style.transform = "rotate(" + i * 23 + "deg)";
+      }
+
       break;
     case "audio2":
       song.src = audio2.src;
@@ -105,7 +143,14 @@ function getSong(songData) {
       isPlaying = true;
       document.getElementById("switch-btn").innerHTML =
         "<i class='fa fa-pause fadeAnimate'></i>";
-        bgBody.style.backgroundImage = "none";
+      bgBody.style.backgroundImage = "none";
+
+      text.innerHTML = audio2.title;
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+      var element = document.querySelectorAll("span");
+      for (let i = 0; i < element.length; i++) {
+        element[i].style.transform = "rotate(" + i * 27 + "deg)";
+      }
       break;
     case "audio3":
       song.src = audio3.src;
@@ -116,7 +161,14 @@ function getSong(songData) {
       isPlaying = true;
       document.getElementById("switch-btn").innerHTML =
         "<i class='fa fa-pause fadeAnimate'></i>";
-        bgBody.style.backgroundImage = "none";
+      bgBody.style.backgroundImage = "none";
+
+      text.innerHTML = audio3.title;
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+      var element = document.querySelectorAll("span");
+      for (let i = 0; i < element.length; i++) {
+        element[i].style.transform = "rotate(" + i * 19 + "deg)";
+      }
       break;
     case "audio4":
       song.src = audio4.src;
@@ -127,8 +179,33 @@ function getSong(songData) {
       isPlaying = true;
       document.getElementById("switch-btn").innerHTML =
         "<i class='fa fa-pause fadeAnimate'></i>";
-        bgBody.style.backgroundImage = "none";
+      bgBody.style.backgroundImage = "none";
+
+      text.innerHTML = audio4.title;
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+      var element = document.querySelectorAll("span");
+      for (let i = 0; i < element.length; i++) {
+        element[i].style.transform = "rotate(" + i * 25 + "deg)";
+      }
       break;
+      case "audio5":
+        song.src = audio5.src;
+        songTitle.innerHTML = audio5.title;
+        artistName.innerHTML = audio5.artist;
+        bannerBg.style.backgroundImage = audio5.bgImg;
+        heartBtn.style.color = "white";
+        isPlaying = true;
+        document.getElementById("switch-btn").innerHTML =
+          "<i class='fa fa-pause fadeAnimate'></i>";
+        bgBody.style.backgroundImage = "none";
+  
+        text.innerHTML = audio5.title;
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+        var element = document.querySelectorAll("span");
+        for (let i = 0; i < element.length; i++) {
+          element[i].style.transform = "rotate(" + i * 16 + "deg)";
+        }
+        break;
     default:
       break;
   }
